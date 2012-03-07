@@ -1,6 +1,6 @@
 # node-expiring-lru-cache Changelog
 
-## 2.0.0 (not yet released)
+## 2.0.0
 
 - [Backward incompat change] Change the input expiry to be in milliseconds.
   Most (all?) core node.js timeouts and times are in milliseconds. As well,
