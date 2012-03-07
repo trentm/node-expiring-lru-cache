@@ -1,5 +1,5 @@
 An expiring LRU cache module for node.js. This builds
-on the [lru-cache](XXX) module.
+on the [lru-cache](https://github.com/isaacs/node-lru-cache) module.
 
 # Usage
 
@@ -10,7 +10,7 @@ on the [lru-cache](XXX) module.
     var accountCache = new Cache({size: 100, expiry: 300});
     accountCache.set('hamish', {...});
     ...
-    accountCache.get('hamish')    // -> {...}
+    accountCache.get('hamish')    // => {...}
 
 
 This also supports logging using [Bunyan](https://github.com/trentm/node-bunyan):
@@ -22,6 +22,8 @@ This also supports logging using [Bunyan](https://github.com/trentm/node-bunyan)
     // the cache.
     var requestCache = new Cache({size: 50, expiry: 60,
             log: log, name: 'request'});
+    requestCache.set('a', 1)
+    requestCache.get('a')       // => 1
 
 This will then log at the TRACE level any cache usage:
 
@@ -40,14 +42,8 @@ MIT. See LICENSE.txt.
 
 # API
 
-    cache.set(key, value) -> item
+    cache.set(key, value)
     cache.get(key) -> value
     cache.del(key)
     cache.reset()
 
-where `item` is:
-
-    {
-        "value": value,
-        "ctime": timestamp
-    }
