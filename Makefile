@@ -28,5 +28,5 @@ testall:
 	TAP=1 $(NODEMASTER) $(TAP) test/*.test.js
 
 .PHONY: cutarelease
-cutarelease: versioncheck
+cutarelease:
 	./support/cutarelease.py -f package.json
