@@ -29,4 +29,4 @@ testall:
 
 .PHONY: cutarelease
 cutarelease:
-	./support/cutarelease.py -f package.json
+	./tools/cutarelease.py -f package.json
