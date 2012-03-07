@@ -11,7 +11,10 @@ var Cache = require('../lib/expiring-lru-cache');
 
 
 test('cache', function(t) {
-  var cache = new Cache({size: 3, expiry: 60});
+  var cache = new Cache({size: 3, expiry: 5000});
+  t.equal(cache.size, 3);
+  t.equal(cache.expiry, 5000);
+
   cache.set('a', 1)
   cache.set('b', 2)
   cache.set('c', 3)
@@ -44,7 +47,10 @@ test('cache with logging', function(t) {
     stream: new LogStream(),
     level: 'trace'
   });
-  var cache = new Cache({size: 3, expiry: 60, log: log, name: 'mycache'});
+
+  var cache = new Cache({size: 3, expiry: 5000, log: log, name: 'mycache'});
+  t.equal(cache.size, 3);
+  t.equal(cache.expiry, 5000);
 
   // Test caching a circular object that can't be JSON.stringify'd. This
   // ensures that Bunyan logging usage in the library isn't brittle with
@@ -91,12 +97,12 @@ test('cache with logging', function(t) {
 
 
 test('cache expiry', function(t) {
-  var cache = new Cache({size: 3, expiry: 1});
+  var cache = new Cache({size: 3, expiry: 250});
   cache.set('a', 1);
   t.equal(cache.get('a'), 1)
   setTimeout(function () {
     t.equal(cache.get('a'), null, 'a now null')
     t.end();
-  }, 2000);
+  }, 500);
 });
 
