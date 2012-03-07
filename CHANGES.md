@@ -1,5 +1,10 @@
 # node-expiring-lru-cache Changelog
 
+## 2.0.1 (not yet released)
+
+(nothing yet)
+
+
 ## 2.0.0
 
 - [Backward incompat change] Change the input expiry to be in milliseconds.
