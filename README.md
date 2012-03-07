@@ -15,8 +15,10 @@ on the [lru-cache](https://github.com/isaacs/node-lru-cache) module.
 
 This also supports logging using [Bunyan](https://github.com/trentm/node-bunyan):
 
+    var Cache = require('expiring-lru-cache');
     var Logger = require('bunyan');
-    var log = new Logger({name: 'myapp' /*, ... */});
+
+    var log = new Logger({name: 'myapp', level: 'trace'});
 
     // 'name' is optional. It will be included in logging to help identify
     // the cache.
@@ -27,7 +29,21 @@ This also supports logging using [Bunyan](https://github.com/trentm/node-bunyan)
 
 This will then log at the TRACE level any cache usage:
 
-    XXX examples
+    $ node example-with-logging.js
+    {"name":"myapp","hostname":"banana.local","pid":44935,"level":10,"cache":{"name":"request","key":"a"},"msg":"cache set","time":"2012-03-07T22:28:40.317Z","v":0}
+    {"name":"myapp","hostname":"banana.local","pid":44935,"level":10,"cache":{"name":"request","key":"a"},"msg":"cache hit","time":"2012-03-07T22:28:40.319Z","v":0}
+
+    $ node example-with-logging.js | bunyan
+    [2012-03-07T22:28:43.724Z] TRACE: myapp/44945 on banana.local: cache set
+        cache: {
+          "name": "request",
+          "key": "a"
+        }
+    [2012-03-07T22:28:43.726Z] TRACE: myapp/44945 on banana.local: cache hit
+        cache: {
+          "name": "request",
+          "key": "a"
+        }
 
 
 # Installation
@@ -57,4 +73,3 @@ MIT. See LICENSE.txt.
     cache.get(key) -> value
     cache.del(key)
     cache.reset()
-
