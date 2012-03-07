@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "tap": "0.1",
-    "bunyan": "0.6",
+    "bunyan": "0.6"
   },
   "engines": {
     "node": ">=0.6"
