@@ -2,7 +2,8 @@
 
 ## 2.0.1 (not yet released)
 
-(nothing yet)
+- Fix for `<cache>.dump()` to actually show the underlying LRU cached items.
+  Note: Waiting on <https://github.com/isaacs/node-lru-cache/pull/3> for this.
 
 
 ## 2.0.0
