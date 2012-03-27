@@ -1,5 +1,10 @@
 # node-expiring-lru-cache Changelog
 
+## 2.0.2 (not yet released)
+
+(nothing yet)
+
+
 ## 2.0.1
 
 - Fix for `<cache>.dump()` to actually show the underlying LRU cached items.

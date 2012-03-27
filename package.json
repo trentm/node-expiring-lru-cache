@@ -1,7 +1,7 @@
 {
   "name": "expiring-lru-cache",
   "description": "Expiring LRU cache",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Trent Mick <trentm@gmail.com> (trentm.com)",
   "main": "lib/expiring-lru-cache.js",
   "dependencies": {
