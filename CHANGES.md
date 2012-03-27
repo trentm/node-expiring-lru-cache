@@ -1,6 +1,6 @@
 # node-expiring-lru-cache Changelog
 
-## 2.0.1 (not yet released)
+## 2.0.1
 
 - Fix for `<cache>.dump()` to actually show the underlying LRU cached items.
   Note: You need the dependent lru-cache v1.0.6 or greater to get
