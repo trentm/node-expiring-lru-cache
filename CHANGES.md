@@ -1,5 +1,10 @@
 # node-expiring-lru-cache Changelog
 
+## 2.1.1 (not yet released)
+
+(nothing yet)
+
+
 ## 2.1.0
 
 - Update dependency lru-cache to v1.1 to keep up (no other particular reason).
