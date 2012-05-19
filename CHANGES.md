@@ -1,6 +1,6 @@
 # node-expiring-lru-cache Changelog
 
-## 2.1.0 (not yet released)
+## 2.1.0
 
 - Update dependency lru-cache to v1.1 to keep up (no other particular reason).
 - [issue #1] Delete expired keys on `<cache>.get(<key>)`. One reason is to
