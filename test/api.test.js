@@ -106,3 +106,30 @@ test('cache expiry', function(t) {
   }, 500);
 });
 
+test('expired items not clogging up the cache', function(t) {
+  var cache = new Cache({size: 3, expiry: 250});
+  // Add a key that we expect to expire.
+  cache.set('a', 1);
+  t.equal(cache.get('a'), 1);
+
+  setTimeout(function () {
+    // Fill up the cache.
+    cache.set('b', 2);
+    cache.set('c', 3);
+    t.equal(cache.get('b'), 2);
+    t.equal(cache.get('c'), 3);
+
+    // Ensure 'a' expired.
+    t.equal(cache.get('a'), null, 'a expired');
+
+    // The expired 'a' should not get in the way of keeping three non-expired
+    // keys around.
+    cache.set('d', 4);
+    t.equal(cache.get('b'), 2, 'b is still around');
+    t.equal(cache.get('c'), 3, 'c is still around');
+    t.equal(cache.get('d'), 4, 'd is still around');
+    //console.log(JSON.stringify(cache.dump()));
+
+    t.end();
+  }, 500);
+});

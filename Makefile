@@ -13,6 +13,7 @@ NODEMASTER = $(HOME)/opt/node-master/bin/node
 #
 
 all:
+	npm update
 
 .PHONY: test
 test: | node_modules/tap
